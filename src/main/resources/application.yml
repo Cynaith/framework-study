@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: framework
+
+  elasticsearch:
+    rest:
+      uris: http://110.40.240.221:9200/
+      username: elastic
+      password: ly19980527
