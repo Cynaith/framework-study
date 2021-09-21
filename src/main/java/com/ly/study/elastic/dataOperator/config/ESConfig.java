@@ -1,4 +1,4 @@
-package com.ly.study.elastic.config;
+package com.ly.study.elastic.dataOperator.config;
 
 
 import org.springframework.context.annotation.Configuration;

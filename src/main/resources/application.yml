@@ -7,6 +7,6 @@ spring:
 
   elasticsearch:
     rest:
-      uris: http://110.40.240.221:9200/
+      uris: 110.40.240.221:9200
       username: elastic
       password: ly19980527

@@ -1,4 +1,4 @@
-package com.ly.study.elastic;
+package com.ly.study.elastic.dataOperator;
 
 
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(indexName = "esTest")
+@Document(indexName = "es_test")
 public class EntityBean implements Serializable {
 
     @Id

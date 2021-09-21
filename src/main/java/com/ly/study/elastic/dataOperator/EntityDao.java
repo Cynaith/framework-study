@@ -1,4 +1,4 @@
-package com.ly.study.elastic;
+package com.ly.study.elastic.dataOperator;
 
 
 import org.springframework.data.repository.CrudRepository;
