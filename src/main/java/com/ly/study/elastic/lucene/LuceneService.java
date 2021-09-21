@@ -32,7 +32,7 @@ public class LuceneService {
 
             Field fieldName = new TextField("name", fileName, Field.Store.YES);
             Field fieldPath = new TextField("path", filePath, Field.Store.YES);
-            Field fieldContent = new TextField("fileContent", fileContent, Field.Store.YES);
+            Field fieldContent = new TextField("content", fileContent, Field.Store.YES);
 
             Document document = new Document();
             document.add(fieldName);
@@ -45,11 +45,11 @@ public class LuceneService {
     }
 
     public void searchIndex() throws IOException {
-        Directory dir = FSDirectory.open(new File("C:\\Users\\Cynaith\\IdeaProjects\\framework-study\\static\\indexDoc").toPath());
+        Directory dir = FSDirectory.open(new File("C:\\Users\\Cynaith\\IdeaProjects\\framework-study\\static\\indexDoc\\").toPath());
         IndexReader indexReader = DirectoryReader.open(dir);
         IndexSearcher indexSearcher = new IndexSearcher(indexReader);
 
-        Query query = new TermQuery(new Term("fileContent", "You"));
+        Query query = new TermQuery(new Term("name", "index-source.txt"));
         TopDocs topDocs = indexSearcher.search(query, 10);
 
         System.out.println("总数:"+ topDocs.totalHits);
