@@ -12,6 +12,13 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @Setter
 @Document(indexName = "es_dream")
 public class ZgDream {
+
+    public static String ID = "id";
+    public static String TITLE = "title";
+    public static String MESSAGE = "message";
+    public static String BIGLX = "biglx";
+    public static String SMALLLX = "smalllx";
+
     @Id
     private long id;
     @Field(analyzer = "ik_smart", type = FieldType.Text)
@@ -22,5 +29,4 @@ public class ZgDream {
     private String biglx;
     @Field(analyzer = "ik_smart", type = FieldType.Text)
     private String smalllx;
-
 }

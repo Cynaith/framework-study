@@ -28,12 +28,20 @@ public class MockController {
 
     @PostMapping("/add")
     public void insertMock() throws SQLException {
-        String sql = "select * from zb_dream";
-        List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
-        System.out.println(JSONUtil.toJsonStr(list));
-
+        String sql = "select * from zb_dream limit 100";
+        List<Map<String, Object>> lists = jdbcTemplate.queryForList(sql);
 
         List<ZgDream> zgDreamList = new ArrayList<>();
+        for (Map<String, Object> list : lists) {
+            ZgDream zgDream = new ZgDream();
+            zgDream.setId(Long.parseLong(String.valueOf(list.get(ZgDream.ID))));
+            zgDream.setTitle((String) list.get(ZgDream.TITLE));
+            zgDream.setMessage((String) list.get(ZgDream.MESSAGE));
+            zgDream.setBiglx((String) list.get(ZgDream.BIGLX));
+            zgDream.setSmalllx((String) list.get(ZgDream.SMALLLX));
+
+            zgDreamList.add(zgDream);
+        }
 
         mockDao.saveAll(zgDreamList);
     }
